@@ -5,6 +5,7 @@ import Particle from "../Particle";
 import bookchapter from "../../Assets/Projects/book-chapter.png";
 import moviebox from "../../Assets/Projects/moviebox.png";
 import foodie from "../../Assets/Projects/foodie.png";
+import reetsangeet from "../../Assets/Projects/reet-sangeet.png";
 
 function Projects() {
   return (
@@ -18,6 +19,17 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={reetsangeet}
+              isBlog={false}
+              title="Reet Sangeet"
+              description="A freelance project for a music school website built with React.js. The website features a user-friendly interface for students to explore courses, book classes, and access learning resources."
+              ghLink="https://github.com/shivamkumar06/reet-sangeet"
+              demoLink="https://www.reetsangeet.com/"
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={moviebox}
