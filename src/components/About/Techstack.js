@@ -24,6 +24,7 @@ import MUI from "../../Assets/TechIcons/MUI.svg";
 import Postman from "../../Assets/TechIcons/Postman.svg";
 import AWS from "../../Assets/TechIcons/AWS.svg";
 import Kafka from "../../Assets/TechIcons/Kafka.svg";
+import SpringBoot from "../../Assets/TechIcons/SpringBoot.svg";
 
 function Techstack() {
   return (
@@ -40,10 +41,10 @@ function Techstack() {
         <img src={Typescript} alt="typescript" />
         <div className="tech-icons-text">Typescript</div>
       </Col>
-      {/* <Col xs={4} md={2} className="tech-icons">
-        <img src={Go} alt="go" />
-        <div className="tech-icons-text">Go</div>
-      </Col> */}
+      <Col xs={4} md={2} className="tech-icons">
+        <img src={SpringBoot} alt="spring-boot" />
+        <div className="tech-icons-text">Spring Boot</div>
+      </Col>
       <Col xs={4} md={2} className="tech-icons">
         <img src={Node} alt="node" />
         <div className="tech-icons-text">Node.Js</div>
