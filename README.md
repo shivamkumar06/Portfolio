@@ -1,6 +1,6 @@
-# Shivam's React Portfolio — Responsive ReactJS Developer Portfolio
+# Shivam's React Portfolio Responsive ReactJS Developer Portfolio
 
-A modern, SEO-optimized personal portfolio built with React. This repository showcases a responsive, component-driven portfolio website highlighting projects, skills, and resume — ideal for frontend developers looking to present work built with React, JavaScript, and Netlify deployments.
+A modern, SEO-optimized personal portfolio built with React. This repository showcases a responsive, component-driven portfolio website highlighting projects, skills, and resume ideal for frontend developers looking to present work built with React, JavaScript, and Netlify deployments.
 
 Live demo: Hosted with Netlify (see netlify.toml in the repo)
 
@@ -13,7 +13,7 @@ Why this repo ranks for `portfolio` and `ReactJS` searches:
 - Uses clear, keyword-rich headings and content for SEO: "React Portfolio", "ReactJS", "Frontend Developer", "Netlify".
 - Lightweight, static React build suited for fast page load and crawlers.
 - Contains common portfolio sections and meta information search engines expect.
-- Also suitable for Full-Stack engineers — add or link backend projects built with Java and Spring Boot to improve discoverability for `Java`, `Spring Boot`, `REST API`, and `Full Stack` queries.
+- Also suitable for Full-Stack engineers add or link backend projects built with Java and Spring Boot to improve discoverability for `Java`, `Spring Boot`, `REST API`, and `Full Stack` queries.
 
 ## Features
 
@@ -27,7 +27,7 @@ Why this repo ranks for `portfolio` and `ReactJS` searches:
 - **Frontend:** React, JavaScript, CSS
 - **Build / Deploy:** Create React App (standard React build), Netlify (netlify.toml present)
 - **Project structure:** `public/`, `src/components/`, `src/Assets/`
-- **Optional / Backend (showcase):** Java, Spring Boot, REST APIs — include API demos or links to backend repos to surface `full stack` and `springboot` keywords
+- **Optional / Backend (showcase):** Java, Spring Boot, REST APIs include API demos or links to backend repos to surface `full stack` and `springboot` keywords
 
 ## Project Structure
 
@@ -78,7 +78,7 @@ This repository includes `netlify.toml` configuration and is ready for Netlify d
 
 ## SEO & Performance Notes
 
-- Use descriptive headings and project descriptions — included in this README for discoverability.
+- Use descriptive headings and project descriptions included in this README for discoverability.
 - Keep images optimized and use appropriate image dimensions in `src/Assets/`.
 - For better SEO ranking, add meta descriptions and Open Graph tags in `public/index.html`.
 
