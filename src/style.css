@@ -78,14 +78,14 @@ button:focus {
 /* --------- */
 .sticky {
   background-color: #1b1a2ea9 !important;
-  transition: all 0.3s ease-out 0s !important;
+  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out, backdrop-filter 0.3s ease-out !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
   backdrop-filter: blur(15px) !important;
 }
 
 .navbar {
   position: fixed !important;
-  transition: all 0.3s ease-out 0s !important;
+  transition: background-color 0.3s ease-out, padding 0.3s ease-out !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.2rem !important;
 }
@@ -185,7 +185,7 @@ button:focus {
 
 .navbar-nav .nav-item a {
   font-weight: 400;
-  transition: all 0.3s ease-out 0s;
+  transition: color 0.3s ease-out;
   position: relative;
   z-index: 1;
 }
@@ -201,7 +201,7 @@ button:focus {
   bottom: 1px;
   left: 0;
   z-index: -1;
-  transition: all 0.3s ease-out 0s;
+  transition: width 0.3s ease-out;
 }
 
 .navbar-nav .nav-item a:hover::after {
@@ -379,7 +379,7 @@ button:focus {
   line-height: 2em !important;
   background: rgba(255, 255, 255, 0.972) !important;
   border-radius: 50% !important;
-  transition: 0.5s !important;
+  transition: background 0.5s, box-shadow 0.5s, color 0.5s, text-shadow 0.5s !important;
 }
 
 .home-social-icons::before {
@@ -391,7 +391,7 @@ button:focus {
   height: 100%;
   border-radius: 50%;
   background: #68187a;
-  transition: 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s;
   transform: scale(0.9);
   z-index: -1;
 }
@@ -486,7 +486,7 @@ button:focus {
   color: white !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
-  transition: all 0.5s ease 0s !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease !important;
   height: 100% !important;
 }
 
@@ -508,7 +508,7 @@ button:focus {
   background-color: transparent !important;
   box-shadow: 0 3px 3px 2px rgba(145, 77, 161, 0.459) !important;
   color: white !important;
-  transition: all 0.5s ease 0s !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease !important;
   height: 100% !important;
 }
 
@@ -589,10 +589,9 @@ button:focus {
   border-radius: 24px !important;
   box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
   overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
+  transition: outline-color 0.3s ease, transform 0.3s ease !important;
   width: fit-content !important;
   cursor: pointer !important;
-  transition: outline-color 0.3s, outline-width 0.3s, transform 0.3s;
   color: white;
 }
 
@@ -749,7 +748,7 @@ button:focus {
   padding: 0.25rem 0.98rem !important;
   border-radius: 5px !important;
   line-height: 1.4 !important;
-  transition: 0.3s ease !important;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease !important;
 }
 
 .like-btn:hover {
@@ -795,4 +794,38 @@ button:focus {
 
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/* Reduced Motion */
+/* --------- */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all transitions */
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  /* Freeze the waving hand */
+  .wave {
+    animation: none;
+  }
+
+  /* Keep particles but disable their motion */
+  #tsparticles {
+    display: none;
+  }
+
+  /* Disable hover lifts */
+  .project-card-view:hover,
+  .blog-card-view:hover,
+  .tech-icons:hover,
+  .fork-btn-inner:hover,
+  .like-btn:hover,
+  .home-social-icons:hover::before {
+    transform: none !important;
+  }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
 import bookchapter from "../../Assets/Projects/book-chapter.png";
 import moviebox from "../../Assets/Projects/moviebox.png";
 import foodie from "../../Assets/Projects/foodie.png";
@@ -10,7 +9,6 @@ import reetsangeet from "../../Assets/Projects/reet-sangeet.png";
 function Projects() {
   return (
     <Container fluid className="project-section">
-      <Particle />
       <Container>
         <h1 className="project-heading">
           My Recent <strong className="purple">Works </strong>
