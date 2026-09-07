@@ -1,29 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/RESUME_SHIVAM_KUMAR_JULY.pdf";
+import pdf from "../../Assets/RESUME_SHIVAM_KUMAR_SEP.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
+// react-pdf (+ pdfjs worker) only downloads when PdfViewer first mounts —
+// completely absent from every other route's bundle.
+const PdfViewer = lazy(() => import("./PdfViewer"));
+
+function PdfLoadingSpinner() {
+  return (
+    <Row
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "60vh",
+        color: "white",
+        fontSize: "1.2rem",
+        gap: "0.6rem",
+      }}
+    >
+      <AiOutlineLoading3Quarters
+        className="pdf-spinner"
+        style={{ fontSize: "2rem", animation: "spin 1s linear infinite" }}
+      />
+      <span>Loading PDF…</span>
+
+      {/* Inline keyframes — no extra CSS file needed */}
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+      `}</style>
+    </Row>
+  );
+}
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
-  const [numPages, setNumPages] = useState(null);
 
-  useEffect(() => {
+  const handleResize = useCallback(() => {
     setWidth(window.innerWidth);
   }, []);
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
+  useEffect(() => {
+    handleResize();                              // set correct width on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   return (
     <div>
       <Container fluid className="resume-section">
-        <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
             variant="primary"
@@ -37,19 +67,10 @@ function ResumeNew() {
         </Row>
 
         <Row className="resume">
-          <Document
-            file={pdf}
-            className="d-flex justify-content-center"
-            onLoadSuccess={onDocumentLoadSuccess}
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page
-                key={`page_${index + 1}`}
-                pageNumber={index + 1}
-                scale={width > 786 ? 1.7 : 0.6}
-              />
-            ))}
-          </Document>
+          {/* Inner Suspense: shows spinner while react-pdf chunk + PDF file load */}
+          <Suspense fallback={<PdfLoadingSpinner />}>
+            <PdfViewer pdf={pdf} width={width} />
+          </Suspense>
         </Row>
 
         <Row style={{ justifyContent: "center", position: "relative" }}>
