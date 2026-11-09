@@ -1,30 +1,34 @@
 import React, { useState, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
-// Isolating pdfjs setup here keeps it out of the main bundle.
-// This entire module (+ react-pdf + the worker) is code-split into its
-// own chunk and only downloaded when PdfViewer is actually rendered.
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 function PdfViewer({ pdf, width }) {
   const [numPages, setNumPages] = useState(null);
 
-  const onDocumentLoadSuccess = useCallback(({ numPages }) => {
-    setNumPages(numPages);
+  const onDocumentLoadSuccess = useCallback(({ numPages: next }) => {
+    setNumPages(next);
   }, []);
+
+  const scale = width > 786 ? 1.35 : 0.55;
 
   return (
     <Document
       file={pdf}
-      className="d-flex justify-content-center"
+      className="resume-pages"
       onLoadSuccess={onDocumentLoadSuccess}
+      loading={<div className="pdf-loading">Preparing pages…</div>}
     >
       {Array.from(new Array(numPages), (_el, index) => (
         <Page
           key={`page_${index + 1}`}
           pageNumber={index + 1}
-          scale={width > 786 ? 1.7 : 0.6}
+          scale={scale}
+          renderTextLayer
+          renderAnnotationLayer
         />
       ))}
     </Document>

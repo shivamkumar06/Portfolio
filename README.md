@@ -24,9 +24,9 @@ Why this repo ranks for `portfolio` and `ReactJS` searches:
 
 ## Tech Stack
 
-- **Frontend:** React, JavaScript, CSS
-- **Build / Deploy:** Create React App (standard React build), Netlify (netlify.toml present)
-- **Project structure:** `public/`, `src/components/`, `src/Assets/`
+- **Frontend:** React 18, JavaScript, CSS (custom design tokens - no Bootstrap)
+- **Build / Deploy:** Vite, Netlify (`netlify.toml` publishes `dist/`)
+- **Project structure:** `public/`, `src/components/`, `src/Assets/`, `src/styles/`
 - **Optional / Backend (showcase):** Java, Spring Boot, REST APIs include API demos or links to backend repos to surface `full stack` and `springboot` keywords
 
 ## Project Structure
@@ -37,11 +37,11 @@ Why this repo ranks for `portfolio` and `ReactJS` searches:
 
 Key components in this repo:
 
-- `Navbar.js`, `Footer.js`, `Particle.js`, `Pre.js`, `ScrollToTop.js`
-- `Home/Home.js`, `Home/Home2.js`, `Home/Type.js`
-- `About/About.js`, `About/AboutCard.js`, `About/Github.js`, `About/Techstack.js`, `About/Toolstack.js`
-- `Projects/Projects.js`, `Projects/ProjectCards.js`
-- `Resume/ResumeNew.js`
+- `Navbar.jsx`, `Footer.jsx`, `Pre.jsx`, `ScrollToTop.jsx`
+- `Home/Home.jsx`, `Home/Home2.jsx`, `Home/Type.jsx`
+- `About/About.jsx`, `About/AboutCard.jsx`, `About/Github.jsx`, `About/Techstack.jsx`, `About/Toolstack.jsx`
+- `Projects/Projects.jsx`, `Projects/ProjectCards.jsx`
+- `Resume/ResumeNew.jsx`
 
 ## Getting Started
 
@@ -69,18 +69,24 @@ npm start
 npm run build
 ```
 
+4. Preview the production build
+
+```
+npm run preview
+```
+
 ## Deployment
 
 This repository includes `netlify.toml` configuration and is ready for Netlify deployment. To deploy:
 
 1. Push the repo to GitHub
-2. Connect the repository in Netlify and set the build command to `npm run build` and the publish directory to `build/`
+2. Connect the repository in Netlify - build `npm run build`, publish `dist/` (set in `netlify.toml`)
 
 ## SEO & Performance Notes
 
 - Use descriptive headings and project descriptions included in this README for discoverability.
 - Keep images optimized and use appropriate image dimensions in `src/Assets/`.
-- For better SEO ranking, add meta descriptions and Open Graph tags in `public/index.html`.
+- Meta / Open Graph tags live in the Vite root `index.html`.
 
 ## Contributing
 

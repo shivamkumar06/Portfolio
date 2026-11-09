@@ -10,6 +10,12 @@
 
 # production
 /build
+/dist
+
+# tooling / local agent config
+.cursor/
+.gemini/
+.impeccable/
 
 # misc
 .DS_Store
