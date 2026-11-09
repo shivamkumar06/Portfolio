@@ -11,10 +11,11 @@
 # production
 /build
 /dist
-.impeccable/questions/
-.impeccable/mocks/
-.impeccable/review/
-.impeccable/config.local.json
+
+# tooling / local agent config
+.cursor/
+.gemini/
+.impeccable/
 
 # misc
 .DS_Store
