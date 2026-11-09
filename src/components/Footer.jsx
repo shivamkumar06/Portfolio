@@ -5,7 +5,7 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import ViewerCount from "./ViewerCount";
+// import ViewerCount from "./ViewerCount";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -16,7 +16,7 @@ function Footer() {
         <h3>Designed and Developed by Shivam Kumar</h3>
         <div className="site-footer__mid">
           <h3>Copyright © {year} Shivam</h3>
-          <ViewerCount />
+          {/* <ViewerCount /> */}
         </div>
         <ul className="site-footer__social">
           <li>
