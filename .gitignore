@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/config.local.json
 
 # misc
 .DS_Store

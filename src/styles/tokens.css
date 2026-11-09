@@ -1,0 +1,40 @@
+:root {
+  --bg: #f5f4ef;
+  --surface: #ffffff;
+  --ink: #121212;
+  --muted: #5c5c5c;
+  --line: #e2e0d8;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --accent-soft: #d7f3ef;
+  --glow: #14b8a6;
+  --nav-h: 4.25rem;
+
+  --font-display: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 5rem;
+  --space-9: 7rem;
+
+  --wrap: min(1120px, calc(100% - 2.5rem));
+  --radius: 12px;
+  --radius-sm: 8px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 280ms;
+  --dur-slow: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 1ms;
+    --dur-slow: 1ms;
+  }
+}
